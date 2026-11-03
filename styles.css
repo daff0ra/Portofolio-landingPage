@@ -1,0 +1,242 @@
+/* =========================================================
+   Design tokens (from the Figma file, unified)
+   ========================================================= */
+:root {
+  --ink: #191a23;
+  --green: #b9ff66;
+  --yellow: #ffcc00;
+  --mint: #66ffd1;
+  --purple: #b95beb;
+  --orange: #fa8e00;
+  --grey: #f3f3f3;
+  --paper: #fdfcfb;
+  --placeholder: #898989;
+
+  --line: 3px;                      /* every structural line */
+  --shadow-sm: 6px 6px 0 var(--ink);   /* buttons */
+  --shadow-lg: 10px 10px 0 var(--ink); /* CTA + framed blocks */
+  --r-sm: 10px;                     /* tags, buttons */
+  --r-md: 14px;                     /* CTA, inputs */
+  --r-lg: 45px;                     /* big standalone panels */
+
+  --f-body: 'Poppins', sans-serif;
+  --f-ui: 'Space Grotesk', sans-serif;
+  --f-display: 'Momo Trust Display', 'Poppins', sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-weight: 300;
+  overflow-x: hidden;
+}
+img { display: block; max-width: none; }
+a { color: inherit; text-decoration: none; }
+
+/* One content column: 100px margins on a 1440 canvas */
+.wrap { width: 1240px; margin: 0 auto; }
+
+/* =========================================================
+   Typography — bold = titles/labels, regular = lead, light = body
+   ========================================================= */
+.title { font: 700 56px/1.15 var(--f-body); }
+.eyebrow { font: 300 20px/1.5 var(--f-body); }
+.lead { font: 400 24px/1.5 var(--f-body); }
+.body { font: 300 18px/1.7 var(--f-body); }
+.card-title { font: 700 30px/1.25 var(--f-body); }
+
+/* =========================================================
+   Shared components
+   ========================================================= */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  height: 48px; padding: 0 28px;
+  background: var(--yellow); color: var(--ink);
+  border: var(--line) solid var(--ink); border-radius: var(--r-sm);
+  box-shadow: var(--shadow-sm);
+  font: 700 18px/1 var(--f-ui); white-space: nowrap;
+  transition: transform .12s, box-shadow .12s;
+}
+.btn:hover { transform: translate(3px, 3px); box-shadow: 3px 3px 0 var(--ink); }
+.btn:active { transform: translate(6px, 6px); box-shadow: 0 0 0 var(--ink); }
+.btn--cta {
+  height: 68px; padding: 0 35px; background: var(--green);
+  border-radius: var(--r-md); box-shadow: var(--shadow-lg);
+  font: 700 30px/1 var(--f-body);
+}
+.btn--cta:hover { transform: translate(5px, 5px); box-shadow: 5px 5px 0 var(--ink); }
+.btn--cta:active { transform: translate(10px, 10px); box-shadow: 0 0 0 var(--ink); }
+
+.tags { display: flex; flex-wrap: wrap; gap: 10px; }
+.tag {
+  display: inline-flex; align-items: center; height: 40px; padding: 0 18px;
+  border: var(--line) solid var(--ink); border-radius: var(--r-sm);
+  font: 700 16px/1 var(--f-ui); white-space: nowrap;
+}
+.tag--green { background: var(--green); }
+.tag--mint { background: var(--mint); }
+.tag--yellow { background: var(--yellow); }
+
+/* Full-bleed section strips: lines run edge to edge */
+.strip {
+  display: flex; align-items: center; height: 154px; background: #fff;
+  border-top: var(--line) solid var(--ink); border-bottom: var(--line) solid var(--ink);
+}
+.strip--open { border-bottom: 0; }          /* the cards below supply this line */
+.strip--center .wrap { text-align: center; }
+.strip__text { display: flex; flex-direction: column; gap: 2px; }
+
+/* Framed block: one border, one shadow, flush internal dividers */
+.frame {
+  background: var(--paper);
+  border: var(--line) solid var(--ink); box-shadow: var(--shadow-lg);
+}
+.block { padding: 80px 0 100px; }
+.block--stack .wrap { display: flex; flex-direction: column; gap: 60px; }
+
+/* Empty image slot (project screenshots go here) */
+.slot {
+  background:
+    repeating-linear-gradient(135deg, transparent 0 14px, rgba(25, 26, 35, .06) 14px 16px),
+    var(--grey);
+}
+
+/* Card text column shared by projects + work experience */
+.cardbody {
+  display: flex; flex-direction: column; align-items: flex-start; justify-content: center;
+  gap: 20px; padding: 40px 48px;
+}
+.cardbody .body { max-width: 520px; }
+
+/* =========================================================
+   Navbar
+   ========================================================= */
+.nav { background: #fff; border-bottom: var(--line) solid var(--ink); }
+.nav__row { height: 97px; display: flex; justify-content: space-between; align-items: stretch; }
+.nav__links { display: flex; align-items: center; gap: 40px; font: 500 20px/1 var(--f-ui); }
+.nav__links a { transition: opacity .15s; }
+.nav__links a:hover { opacity: .55; }
+.nav__links a.is-active { font-weight: 700; }
+.nav__login {
+  width: 211px; display: flex; align-items: center; justify-content: center;
+  background: var(--ink); color: #fff; font: 500 20px/1 var(--f-ui);
+  transition: background .15s, color .15s;
+}
+.nav__login:hover { background: var(--green); color: var(--ink); }
+
+/* =========================================================
+   Hero
+   ========================================================= */
+.hero { padding: 56px 0 64px; }
+.hero__row { display: flex; align-items: center; justify-content: space-between; }
+.hero__content { display: flex; flex-direction: column; align-items: flex-start; gap: 35px; }
+.hero__title { font: 400 70px/1.3 var(--f-display); }
+.hero__line { display: block; }
+.hero__hl {
+  display: inline-block; padding: 0 10px; margin-left: 4px;
+  background: var(--green); border-radius: 8px;
+  font-size: 75px; transform: rotate(2.2deg);
+}
+.hero__desc { width: 613px; font: 400 25px/1.5 var(--f-body); }
+.hero__art { width: 424px; height: 497px; flex: none; }
+
+/* =========================================================
+   Services
+   ========================================================= */
+.trio {
+  display: grid; grid-template-columns: repeat(3, 1fr); height: 286px; background: #fff;
+  border-top: var(--line) solid var(--ink); border-bottom: var(--line) solid var(--ink);
+}
+.trio__cell + .trio__cell { border-left: var(--line) solid var(--ink); }
+
+/* =========================================================
+   About
+   ========================================================= */
+.about { padding: 100px 0; }
+.about__row { display: grid; grid-template-columns: 520px 1fr; column-gap: 54px; align-items: center; }
+.about__graphic { position: relative; height: 458px; }
+.panel {
+  position: absolute; left: 0; top: 29px; width: 352px; height: 400px;
+  background: var(--purple); border: var(--line) solid var(--ink); border-radius: 28px;
+  box-shadow: var(--shadow-lg);
+}
+.panel::before {  /* thin inner frame, as in the hero artwork */
+  content: ''; position: absolute; inset: 16px; border: 1px solid rgba(255, 255, 255, .75);
+}
+.panel__tab {
+  position: absolute; left: -3px; top: -3px; width: 96px; height: 76px;
+  background: var(--orange); border: var(--line) solid var(--ink);
+  border-radius: 30px 30px 0 30px; box-shadow: var(--shadow-sm);
+}
+.badge { position: absolute; left: 376px; top: 0; width: 134px; height: 134px; display: flex; align-items: center; justify-content: center; }
+.badge__disc {
+  width: 122px; height: 122px; display: flex; align-items: center; justify-content: center;
+  background: #fff; border: var(--line) solid var(--ink); border-radius: 50%;
+  box-shadow: var(--shadow-sm); transform: rotate(6deg);
+}
+.about__text { display: flex; flex-direction: column; gap: 20px; max-width: 666px; }
+.about__text .title { margin-bottom: 4px; }
+.about__text .body { font-size: 20px; }
+
+/* =========================================================
+   Featured projects (3 rows: slot | text, text | slot, slot | text)
+   ========================================================= */
+.prow { display: grid; grid-template-columns: 1fr 1fr; min-height: 373px; }
+.prow + .prow { border-top: var(--line) solid var(--ink); }
+.prow > :first-child { border-right: var(--line) solid var(--ink); }
+
+/* Work experience: image slot flush left, text right */
+.wcard { display: grid; grid-template-columns: 600px 1fr; min-height: 373px; }
+.wcard > .slot { border-right: var(--line) solid var(--ink); }
+
+/* =========================================================
+   Skills
+   ========================================================= */
+.skills { padding-bottom: 100px; }
+.skills__card {
+  display: flex; justify-content: center; gap: 80px; padding: 64px 40px;
+  background: #fff; border: var(--line) solid var(--ink); border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
+}
+.skill { transition: transform .15s; }
+.skill:hover { transform: translate(-3px, -3px); }
+
+/* =========================================================
+   Contact
+   ========================================================= */
+.rule { border: 0; border-top: var(--line) solid var(--ink); }
+.contact { padding: 80px 0 100px; }
+.contact__box {
+  position: relative; overflow: hidden; height: 773px;
+  background: var(--grey); border-radius: var(--r-lg); padding: 60px 100px 80px;
+}
+/* the artwork has a baked-in 3px box edge on its top + right: push it out so the box clips it cleanly */
+.contact__art { position: absolute; right: -8px; top: -5px; width: 470px; height: 762px; pointer-events: none; }
+.form { position: relative; z-index: 1; width: 556px; display: flex; flex-direction: column; gap: 40px; }
+.form__radios { display: flex; gap: 35px; }
+.radio { position: relative; display: block; height: 28px; cursor: pointer; font: 400 18px/1 var(--f-ui); }
+.radio input { position: absolute; opacity: 0; inset: 0; }
+.radio__dot { position: absolute; left: 0; top: 0; width: 28px; height: 28px; border: 1px solid var(--ink); border-radius: 50%; background: #fff; }
+.radio input:checked + .radio__dot::after { content: ''; position: absolute; inset: 4px; border-radius: 50%; background: var(--green); border: 1px solid var(--ink); }
+.radio input:focus-visible + .radio__dot { outline: 2px solid var(--ink); outline-offset: 2px; }
+.radio__label { display: block; margin-left: 42px; line-height: 28px; white-space: nowrap; }
+.form__fields { display: flex; flex-direction: column; gap: 25px; }
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field label { font: 400 16px/28px var(--f-ui); }
+.field input, .field textarea {
+  width: 556px; background: #fff; border: 1px solid var(--ink); border-radius: var(--r-md);
+  padding: 18px 30px; font: 400 18px/1.3 var(--f-ui); color: var(--ink); outline: none;
+}
+.field input { height: 59px; }
+.field textarea { height: 190px; resize: none; }
+.field input::placeholder, .field textarea::placeholder { color: var(--placeholder); }
+.field input:focus, .field textarea:focus { box-shadow: 0 0 0 3px var(--green); }
+.field.is-invalid input, .field.is-invalid textarea { border-color: #d33; box-shadow: 0 0 0 3px rgba(221, 51, 51, .25); }
+.form__submit {
+  width: 556px; height: 68px; background: var(--ink); color: #fff; border: 0; border-radius: var(--r-md); cursor: pointer;
+  font: 400 20px/1 var(--f-ui); transition: background .15s, color .15s;
+}
+.form__submit:hover { background: var(--green); color: var(--ink); }
