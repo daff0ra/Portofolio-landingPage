@@ -26,6 +26,42 @@
     sections.forEach(function (s) { if (s) io.observe(s); });
   }
 
+  // Track the pointer across the page; periodically blink and shift the brow expression.
+  var eyeScene = document.querySelector('.eye-box');
+  var pupils = Array.prototype.slice.call(document.querySelectorAll('.eye-pupil'));
+  if (eyeScene && pupils.length && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    window.addEventListener('pointermove', function (e) {
+      if (e.pointerType === 'touch') return;
+      pupils.forEach(function (pupil) {
+        var rect = pupil.getBoundingClientRect();
+        var dx = (e.clientX - (rect.left + rect.width / 2)) / 95;
+        var dy = (e.clientY - (rect.top + rect.height / 2)) / 95;
+        var x = Math.max(-1, Math.min(1, dx)) * 25;
+        var y = Math.max(-1, Math.min(1, dy)) * 21;
+        pupil.style.transform = 'translate(' + x + 'px, ' + y + 'px)';
+      });
+    });
+    window.addEventListener('blur', function () {
+      pupils.forEach(function (pupil) { pupil.style.transform = 'translate(0, 0)'; });
+    });
+    var expressions = ['is-curious', 'is-surprised', ''];
+    var expressionIndex = 0;
+    window.setInterval(function () {
+      eyeScene.classList.remove('is-curious', 'is-surprised');
+      if (expressions[expressionIndex]) eyeScene.classList.add(expressions[expressionIndex]);
+      expressionIndex = (expressionIndex + 1) % expressions.length;
+    }, 2200);
+    (function blink() {
+      window.setTimeout(function () {
+        eyeScene.classList.add('is-blinking');
+        window.setTimeout(function () {
+          eyeScene.classList.remove('is-blinking');
+          blink();
+        }, 150);
+      }, 1800 + Math.random() * 1800);
+    })();
+  }
+
   // Contact form: client-side validation + sent state (no backend in the design)
   var form = document.getElementById('contact-form');
   var btn = form.querySelector('.form__submit');

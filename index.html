@@ -6,6 +6,7 @@
   <title>Portfolio — Fullstack Developer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Momo+Trust+Display&family=Poppins:wght@300;400;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
@@ -44,33 +45,58 @@
     <!-- SERVICES -->
     <section class="strip strip--open" id="services">
       <div class="wrap strip__text">
-        <p class="eyebrow">It must be not coincident we met here</p>
-        <h2 class="title">What Can I do For You</h2>
+      <p class="eyebrow">It must be not coincident we met here</p>
+        <h2 class="title">What can I do for you</h2>
       </div>
     </section>
     <div class="trio" aria-label="Services">
-      <div class="trio__cell"></div>
-      <div class="trio__cell"></div>
-      <div class="trio__cell"></div>
+      <article class="trio__cell">
+        <span class="service-icon service-icon--purple" aria-hidden="true"><i class="bi bi-code-slash"></i></span>
+        <h3 class="service-title">Frontend Developer</h3>
+        <p class="service-desc">I build responsive, accessible interfaces that turn ideas into smooth, engaging web experiences with modern frontend tools.</p>
+      </article>
+      <article class="trio__cell">
+        <span class="service-icon service-icon--yellow" aria-hidden="true"><i class="bi bi-server"></i></span>
+        <h3 class="service-title">Backend Developer</h3>
+        <p class="service-desc">I create reliable APIs and backend systems, connecting data, business logic, and services to keep applications running smoothly.</p>
+      </article>
+      <article class="trio__cell">
+        <span class="service-icon service-icon--green" aria-hidden="true"><i class="bi bi-cloud-arrow-up"></i></span>
+        <h3 class="service-title">DevOps</h3>
+        <p class="service-desc">I streamline delivery with automated builds, deployments, and cloud infrastructure so products ship reliably and scale with confidence.</p>
+      </article>
     </div>
 
     <!-- ABOUT -->
     <section class="about" id="about">
-      <div class="wrap about__row">
-        <div class="about__graphic" aria-hidden="true">
-          <div class="panel">
-            <div class="panel__tab"></div>
-          </div>
-          <div class="badge">
-            <div class="badge__disc">
-              <svg viewBox="0 0 16 16" width="68" height="68" fill="#191a23"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-            </div>
+      <div class="wrap about__layout">
+        <div class="about__art">
+          <div class="eye-box" aria-label="Illustration of eyes that follow your cursor">
+            <svg class="eye-art" viewBox="0 0 400 220" role="img" aria-labelledby="eyes-title">
+              <title id="eyes-title">Eyes following the cursor</title>
+              <ellipse cx="130" cy="105" rx="67" ry="82" fill="#fff" stroke="#191a23" stroke-width="5"/>
+              <ellipse cx="270" cy="105" rx="67" ry="82" fill="#fff" stroke="#191a23" stroke-width="5"/>
+              <path class="eye-brow eye-brow--left" d="M72 25q58-37 116 0" fill="none" stroke="#191a23" stroke-width="8" stroke-linecap="round"/>
+              <path class="eye-brow eye-brow--right" d="M212 25q58-37 116 0" fill="none" stroke="#191a23" stroke-width="8" stroke-linecap="round"/>
+              <g class="eye-pupil"><circle cx="130" cy="110" r="30" fill="#191a23"/></g>
+              <g class="eye-pupil"><circle cx="270" cy="110" r="30" fill="#191a23"/></g>
+              <ellipse class="eye-lid eye-lid--left" cx="130" cy="105" rx="67" ry="82" fill="#f3f3f3" stroke="#191a23" stroke-width="5"/>
+              <ellipse class="eye-lid eye-lid--right" cx="270" cy="105" rx="67" ry="82" fill="#f3f3f3" stroke="#191a23" stroke-width="5"/>
+            </svg>
           </div>
         </div>
-        <div class="about__text">
-          <h2 class="title">About Me</h2>
-          <p class="lead">I am a fullstack programer with a passion for creating real value from bussiness requirement.</p>
-          <p class="body">Detailed oriented person, and have strong comprehension with fundamental programing. Always looking for new challenges and opportunities to grow my skills</p>
+        <div class="about__content">
+          <p class="eyebrow">know me better</p>
+          <h2 class="title">About <span class="about__highlight">Me</span></h2>
+          <p class="about__lead">I’m a full stack developer who turns business needs into thoughtful, dependable digital products.</p>
+          <p class="about__body">I enjoy working across the stack—from shaping clear, responsive interfaces to building the APIs and delivery workflows behind them. I care about the details, keep learning, and like solving problems with a practical mindset.</p>
+          <div class="about__timeline" aria-label="Development journey by year">
+            <article class="about-milestone"><span class="about-milestone__year">2024</span><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur eos fuga assumenda inventore, architecto dolores repellendus deserunt rem sit, dolor quod exercitationem accusantium ipsa dolorum eaque sapiente quam voluptatibus corrupti!</p></article>
+            <article class="about-milestone"><span class="about-milestone__year">2023</span><p>Connecting application features with reliable data, services, and business logic.</p></article>
+            <article class="about-milestone"><span class="about-milestone__year">2022</span><p>Creating responsive interfaces with a focus on usability and clear visual hierarchy.</p></article>
+            <article class="about-milestone"><span class="about-milestone__year">2021</span><p>Learning the fundamentals and building a lasting curiosity for how the web works.</p></article>
+          </div>
+          <a class="btn about__blog" href="blog.html">Read my blog <i class="bi bi-arrow-up-right" aria-hidden="true"></i></a>
         </div>
       </div>
     </section>
@@ -148,6 +174,18 @@
           <img class="skill" src="assets/skill-database.png" width="200" height="189" alt="SQL / Database">
           <img class="skill" src="assets/skill-javascript.png" width="201" height="189" alt="JavaScript">
           <img class="skill" src="assets/skill-git.png" width="200" height="189" alt="Git">
+          <img class="skill" src="assets/skill-git.png" width="200" height="189" alt="Git">
+          <img class="skill" src="assets/typescript.svg" width="201" height="189" alt="TypeScript">
+          <img class="skill" src="assets/php.svg" width="201" height="189" alt="PHP">
+          <img class="skill" src="assets/laravel.svg" width="201" height="189" alt="Laravel">
+          <img class="skill" src="assets/html.svg" width="201" height="189" alt="HTML">
+          <img class="skill" src="assets/css.svg" width="201" height="189" alt="CSS">
+          <img class="skill" src="assets/postgresql.svg" width="201" height="189" alt="PostgreSQL">
+          <img class="skill" src="assets/mongodb.svg" width="201" height="189" alt="MongoDB">
+          <img class="skill" src="assets/mysql.svg" width="201" height="189" alt="MySQL">
+          <img class="skill" src="assets/vercel.svg" width="201" height="189" alt="Vercel">
+          <img class="skill" src="assets/linux.svg" width="201" height="189" alt="Linux">
+          <img class="skill" src="assets/prisma.svg" width="201" height="189" alt="Prisma">
         </div>
       </div>
     </section>
